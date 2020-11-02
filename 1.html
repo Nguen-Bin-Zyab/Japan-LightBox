@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #maket{
+            margin:auto;
+            width: 1000px;
+            border: 1px solid #000;
+        }
+        #image1, #image2, #image3, #image4{
+            width:0;
+            height:0;
+            top:0;
+            left:0;
+            position: fixed;
+            overflow:hidden;
+            background: rgba(0,0,0,0.7);
+        }
+        #image1 img, #image2 img, #image3 img, #image4 img{
+            width:100%;
+            height: auto;
+            margin-top: 80px;
+        }
+        #image1:target, #image2:target, #image3:target, #image4:target{
+            width: auto;
+            height: auto;
+            right: 0;
+            bottom: 0;
+        }
+        #image1:target img, #image2:target img, #image3:target img, #image4:target img
+            {animation: fadeinscale 1.2s ease-in-out;}
+            @keyframes fadeinscale{
+                0%{transform:scale(1); opacity:0;}
+                100%{transform:scale(1); opacity:1;}
+            }
+        
+        .knop{
+            width: 700px;
+            height: 700px;
+            position: relative;
+            margin:auto;
+        }
+        
+        .left{
+            width: 70px;
+            height: 64px;
+            position: absolute;
+            background: url(left.png);
+            top: 280px;
+            left: -80px;
+        }
+        .right{
+            width: 70px;
+            height: 64px;
+            position: absolute;
+            background: url(right.png);
+            top: 280px;
+            right: -80px;
+        }
+        
+        .close{
+            position: absolute;
+            background: url(close.png);
+            width: 200px;
+            height: 45px;
+            top: 20px;
+            left: 250px;
+        }
+        
+        
+        
+        
+      
+
+        
+        
+
+        
+        .menu{
+            display: table;
+            width: 100%;
+            padding: 0px;
+            border: 2px solid #8b8585;
+            border-radius: 17px;
+        }
+        
+        .menu li{
+            display: table-cell;
+            background: linear-gradient(to top, #d102bb, #f9ebf8);
+            text-align: center; 
+            position:relative;
+            
+        }
+        .menu a{
+            text-decoration: none;
+            display:block;
+            line-height: 50px;
+            color: #f8ff2b;
+            font-family:sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            position: relative;
+            transition-property: background-color, color;
+            transition-timing-function: ease-out;
+            transition-duration: 1.5s;
+        }
+        .menu a:hover{
+            background: linear-gradient(to bottom, red, #f1baa4);
+            color: mediumblue;
+        }
+        #firstli{
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        #lastli{
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        #firsta:hover{
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            
+        }
+        #lasta:hover{
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        
+        
+        
+       
+        .menu li ul{
+            display: none;
+            position: absolute;
+            top: 100%;
+            white-space: nowrap;
+        }
+        .prig li{
+            float: left;   
+            width: 100%;   /*!!!!!!!!!!ВНИМАНИЕ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+            text-align: left;
+        }
+        .menu li ul li{
+            background: linear-gradient(to top, #0623ff, #dce0fd);
+        }
+        .prig li a{
+            width: 100%;  /*!!!!!!!!!!!ВНИМАНИЕ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/  
+        }
+        /*либо второй вариант:
+        то же самое задаю:
+        .menu li ul li{
+           float:left;
+        }
+        .menu li ul li a{
+           background: blue;
+           padding: 0px 5px;
+        }
+        */
+        
+        .prig li a:hover{
+           background: linear-gradient(to bottom, red, #f1baa4); 
+        }
+        .menu li:hover ul{
+            display: block;
+            padding: 0px;
+        }
+        .prig .peiz{
+            line-height: 40px;
+            padding: 3px 15px;
+            box-sizing: border-box;
+            border-left: 2px solid #8b8585;
+            border-right: 2px solid #8b8585;
+            border-top: 2px solid #8b8585;
+        }
+        .peiz.chai{
+            border-bottom: 2px solid #8b8585;
+        }
+        #bomzh{
+            right: 0px;
+        }
+        
+        
+        .prig .peiz:hover{
+            position: relative;
+            transition-duration: 1.5s;
+            transition-timing-function: ease-out;
+            transition-property: background-color, color;
+            background: red;
+            color: mediumblue;   
+        }
+        #odin{
+            display:block;
+            width: 0px;
+            height: 0px;
+            border-left: 40px solid red;
+            border-top: 40px solid red;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            transform: rotate(45deg) translate(600px, -500px) scale(3)
+        }
+        #dva{
+            display:block;
+            width: 0px;
+            height: 0px;
+            border-left: 40px solid red;
+            border-top: 40px solid red;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            transform: rotate(225deg) translate(-290px, 550px) scale(3)
+        }
+        #tri{
+            display:block;
+            width: 0px;
+            height: 0px;
+            border-left: 40px solid yellow;
+            border-top: 40px solid yellow;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            transform: rotate(45deg) translate(225px, -350px) scale(3)
+        }
+    </style>
+</head>
+<body>
+ <div id="maket">
+      
+    
+  <ul class="menu">
+      <li id="firstli"><a href="#" id="firsta">История Японии</a>
+          <ul class="prig">
+              <li><a href="#" class="peiz">History of Japan</a></li>
+              <li><a href="#" class="peiz">History </a></li>
+              <li><a href="#" class="peiz">History of Japan Japan</a></li>
+              <li><a href="#" class="peiz">Japan</a></li>
+              <li><a href="#" class="peiz chai">History of Japan History of Japan</a></li>
+          </ul>
+      </li>
+      <li><a href="#">Галерея</a>
+          <ul class="prig">
+              <li><a href="#" class="peiz">Пейзажи</a></li>
+              <li><a href="#" class="peiz">Городские зарисовки</a></li>
+              <li><a href="#" class="peiz">Hi-Tech</a></li>
+              <li><a href="#" class="peiz">Архитектура</a></li>
+              <li><a href="#" class="peiz chai">Чайная церемония</a></li>
+          </ul>
+      </li>
+      <li><a href="#">Интересные факты</a>
+          <ul class="prig">
+              <li><a href="#" class="peiz">Profg</a></li>
+              <li><a href="#" class="peiz">Pro jdbvkjb kjdv</a></li>
+              <li><a href="#" class="peiz">Pro jdbv</a></li>
+              <li><a href="#" class="peiz">Pro jdbvsdvnjs</a></li>
+              <li><a href="#" class="peiz chai">Pro jdbvsdvn</a></li>
+          </ul>
+      </li>
+      <li><a href="#">Национальные традиции</a>
+          <ul class="prig">
+              <li><a href="#" class="peiz">vbvvner wvbewu</a></li>
+              <li><a href="#" class="peiz">vbvvebnf dj fjvb</a></li>
+              <li><a href="#" class="peiz">vb dbv d bfeb df  dvdfbd gfb sb udefui</a></li>
+              <li><a href="#" class="peiz chai">v svawrv sdgbs  sf sgf sf sf fsg</a></li>
+          </ul>
+      </li>
+      <li id="lastli"><a href="#" id="lasta">Современное искусство</a>
+      <ul class="prig" id="bomzh">
+          <li><a href="#" class="peiz">bvidsw kiswv</a></li>
+          <li><a href="#" class="peiz">bvi</a></li>
+          <li><a href="#" class="peiz">bvikdjvbkjbrjvbe dfbdb db rvsebrvb f fb ub</a></li>
+          <li><a href="#" class="peiz">bvikdjvbkj</a></li>
+          <li><a href="#" class="peiz chai">bvikdjvbkj</a></li>
+      </ul>
+      </li>
+  </ul>
+ 
+ 
+ 
+ <p>asbdvbabvahbvalbvl</p>
+ <p>asbdvbabvahbvalbvl</p>
+ <p>asbdvbabvahbvalbvl</p>
+ <p>asbdvbabvahbvalbvl</p>
+ <p>asbdvbabvahbvalbvl</p>
+ <p>asbdvbabvahbvalbvl</p>
+ <p>asbdvbabvahbvalbvl</p>
+ <p>asbdvbabvahbvalbvl</p>
+ 
+ <span id="odin"></span>
+ <span id="dva"></span>
+ <span id="tri"></span>
+ <p>asbdvbabvahbvalbvl</p>
+ <p>asbdvbabvahbvalbvl</p>
+ <p>asbdvbabvahbvalbvl</p>
+ 
+   
+   <a href="#image1"><img src="mini1.gif"></a>
+   <a href="#image2"><img src="mini2.gif"></a>
+   <a href="#image3"><img src="mini3.gif"></a>
+   <a href="#image4"><img src="mini4.gif"></a>
+   
+   <div id="image1">
+       <div class="knop">
+           <img src="1.jpg">
+           <a href="#image4" class="left"></a>
+           <a href="#image2" class="right"></a>
+           <a href="#" class="close"></a>
+       </div>
+   </div>
+    
+    <div id="image2">
+        <div class="knop">
+            <img src="2.jpg">
+            <a href="#image1" class="left"></a>
+            <a href="#image3" class="right"></a>
+            <a href="#" class="close"></a>
+        </div>
+    </div>
+    
+    <div id="image3">
+        <div class="knop">
+            <img src="3.jpg">
+            <a href="#image2" class="left"></a>
+            <a href="#image4" class="right"></a>
+            <a href="#" class="close"></a>
+        </div>
+    </div>
+    
+    <div id="image4">
+        <div class="knop">
+            <img src="4.jpg">
+            <a href="#image3" class="left"></a>
+            <a href="#image1" class="right"></a>
+            <a href="#" class="close"></a>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div> 
+</body>
+</html>
